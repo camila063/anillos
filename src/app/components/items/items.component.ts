@@ -10,15 +10,13 @@ import { Component } from '@angular/core';
 export class ItemsComponent {
 
   items:Item [] = [];
-  constructor(){
-
-  }
+  constructor(){}
   ngOnInit(): void{
     this.items = [
       {
         id: 0,
         title: 'Anillo mariposa',
-        price: 10.5,
+        price: 800,
         quantity: 4,
         completed: false,
 
@@ -26,11 +24,19 @@ export class ItemsComponent {
       {
         id: 1,
         title: 'Anillo flor',
-        price: 10.5,
+        price: 900,
+        quantity: 4,
+        completed: true,
+
+      },
+      {
+        id: 3,
+        title: 'Anillo sol',
+        price: 1000,
         quantity: 4,
         completed: false,
 
-      }
+      },
     ];
 
 
