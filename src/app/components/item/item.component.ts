@@ -8,9 +8,17 @@ import { Item } from "src/app/models/item";
 })
 export class ItemComponent {
   @Input() item: Item = new Item();
+  @Output()deleteItem: EventEmitter<Item>= new EventMitter();
+
   constructor(){ }
   ngOnInit(): void{
-    
+  }
+  onDelete(item: Item){
+    this.deleteItem.emit(item);
+
+  }
+  onToggle(item: Item){
+    item.completed = !item.completed;
   }
 
 }

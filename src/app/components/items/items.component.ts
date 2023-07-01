@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class ItemsComponent {
 
   items:Item [] = [];
+  total:number = 0;
   constructor(){}
   ngOnInit(): void{
     this.items = [
@@ -38,8 +39,17 @@ export class ItemsComponent {
 
       },
     ];
-
-
+    this.getTotal();
+  }
+  deleteItem(item: Item){
+    this.items =  this.items.filter(x => x.id != item.id);
+    this.getTotal();
+  }
+  getTotal(){
+    this.total = this.items
+                .filter(x =>!x.completed)
+                .map(x => x.quantity * this.items.price)
+                .reduce((acc, item)=>acc += item,0);
   }
 
 }
